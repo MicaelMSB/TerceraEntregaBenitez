@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SANVISHOP DRINKS</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        
+    </head>
+    <body>
+
+       {% include 'navbar.html' %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">SANVISHOP DRINKS</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">La bebida que queres a un click</p>
+                </div>
+            </div>
+        </header>
+        
+        {% block contenidoQueCambia %}
+
+        {% endblock contenidoQueCambia %}
+            
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Benítez Micael 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            // Obtiene el botón de "Productos" y lo oculta en la página de inicio
+            document.addEventListener('DOMContentLoaded', function() {
+                const productosButton = document.querySelector('a[href="{% url "productos" %}"]');
+                if (productosButton && window.location.pathname === "{% url "inicio" %}") {
+                    productosButton.style.display = 'none';
+                }
+            });
+        </script>
+        
+    </body>
+</html>
