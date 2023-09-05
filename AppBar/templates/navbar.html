@@ -13,7 +13,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 {% if "/productos/" in request.path %}
                     <li class="nav-item">
-                        <a class="nav-link bg-dark text-white" href="#!">Cerrar Sesión</a>
+                        <a class="nav-link bg-dark text-white" href="{% url 'logout' %}">Cerrar Sesión</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
