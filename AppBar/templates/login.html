@@ -1,0 +1,51 @@
+{% extends "padre.html" %}
+{% block contenidoQueCambia %}
+<style>
+    body {
+        background-color: black;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: black;
+        border: 2px solid white;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+    }
+    h1 {
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+    button {
+        margin-top: 10px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: white;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+    }
+</style>
+<div style="text-align: center;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>LOGIN</h1>
+        <label for="username">Ingrese nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Ingrese contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+</div>
+{% endblock contenidoQueCambia %}
