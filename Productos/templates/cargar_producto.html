@@ -1,0 +1,10 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+<form method="POST" action="{% url 'cargar_producto' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Cargar nuevo producto</button>
+</form>
+
+{% endblock contenidoQueCambia %}

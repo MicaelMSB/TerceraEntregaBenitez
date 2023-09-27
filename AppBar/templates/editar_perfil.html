@@ -1,0 +1,65 @@
+{% extends "padre.html" %}
+{% block contenidoQueCambia %}
+<style>
+    body {
+        background-color: black;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: black;
+        border: 2px solid white;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+    }
+    h1 {
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+    button {
+        margin-top: 10px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: white;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+    }
+</style>
+<div>
+    <form action="{% url 'editar_perfil' %}" method="post">
+        {% csrf_token %}
+        <h1>EDITAR PERFIL</h1>
+        <label for="{{ miFormulario.username.id_for_label }}">Nombre de usuario:</label>
+        {{ miFormulario.username }}
+        <label for="{{ miFormulario.first_name.id_for_label }}">Ingrese su nombre:</label>
+        {{ miFormulario.first_name }}
+        <label for="{{ miFormulario.last_name.id_for_label }}">Ingrese su apellido:</label>
+        {{ miFormulario.last_name }}
+        <label for="{{ miFormulario.email.id_for_label }}">Ingrese su email:</label>
+        {{ miFormulario.email }}
+        <hr>
+        <h2>Cambiar contraseña</h2>
+        <label for="{{ form_password.old_password.id_for_label }}">Contraseña actual:</label>
+        {{ form_password.old_password }}
+        <label for="{{ form_password.new_password1.id_for_label }}">Nueva contraseña:</label>
+        {{ form_password.new_password1 }}
+        <label for="{{ form_password.new_password2.id_for_label }}">Confirmar nueva contraseña:</label>
+        {{ form_password.new_password2 }}
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+{% endblock contenidoQueCambia %}

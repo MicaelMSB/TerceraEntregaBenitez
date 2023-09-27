@@ -1,0 +1,17 @@
+{% extends "padre.html" %}
+{% block contenidoQueCambia %}
+
+<div>
+    <form action="{% url 'agregar_avatar' %}"enctype="multipart/form-data" method="post">{% csrf_token %}
+        {{miFormulario.as_p}}
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% if errores %}
+<ul>
+    {% for error in errores %}
+        <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock contenidoQueCambia %}
